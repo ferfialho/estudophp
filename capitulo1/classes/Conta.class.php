@@ -42,5 +42,31 @@ class Conta
 	function Obtersaldo(){
 		return $this->Saldo;
 	}
+	
+	/* metodo construtor
+	 * inicializar propriedades
+	*/
+	 
+	function  __construct( $Agencia, $Codigo, $DataDeCriacao, $Titular, $Senha, $Saldo){
+	
+		$this->Codigo = $Codigo;
+		$this->Agencia = $Agencia;
+		$this->DataDeCriacao =$DataDeCriacao;
+		$this->Titular = $Titular;
+		$this->Senha = $Senha;
+		
+		// chamada de outro metodo da classe
+		
+		$this->Depositar($Saldo);
+		$this->Cancelada = false;
+	}
+	
+	/* metodo destrutor
+	 *
+	* finaliza objeto
+	*/
+	function __destruct(){
+		echo "Objeto Conta{$this->Codigo} de  {$this->Titular->Nome}  finalizada...<br>";
+	}
 }
 
